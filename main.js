@@ -17,6 +17,15 @@ document.addEventListener('mousewheel', (event) => {
 
   const direction = event.wheelDelta < 0 ? 1 : -1
 
+
+
+  scroll(direction)
+
+  scrollToCurrentSectionIndex()
+
+})
+
+function scroll(direction) {
   if (direction === 1) {
     const isLastSection = currentSectionIndex === sections.length - 1
     if (isLastSection) return
@@ -26,10 +35,11 @@ document.addEventListener('mousewheel', (event) => {
     if (isFirstSection) return
   }
   currentSectionIndex += direction
-  console.log(currentSectionIndex);
+}
 
+function scrollToCurrentSectionIndex() {
   sections[currentSectionIndex].scrollIntoView({
     behavior: "smooth",
     block: "start"
   })
-})
+}
