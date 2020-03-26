@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const scroller = new Scroller("#root")
 
 
-document.addEventListener('mousewheel', function (event) {
+document.addEventListener('wheel', (event) => {
   scroller.listenScroll(event)
 })
 //  document.addEventListener('mousewheel', scroller.listenScroll)   //SKROCONA WERSJA ZAPISU POWYZEJ

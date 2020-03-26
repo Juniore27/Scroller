@@ -41,12 +41,12 @@ class Scroller {
     }, 1000)
 
 
-    const direction = event.wheelDelta < 0 ? 1 : -1
+    const direction = event.deltaY > 0 ? 1 : -1
 
     this.scroll(direction)
 
   }
-  scroll = (direction) => {
+  scroll(direction) {
     if (direction === 1) {
       const isLastSection = this.currentSectionIndex === this.sections.length - 1
       if (isLastSection) return
@@ -58,14 +58,14 @@ class Scroller {
     this.currentSectionIndex += direction
     this.scrollToCurrentSectionIndex()
   }
-  scrollToCurrentSectionIndex = () => {
+  scrollToCurrentSectionIndex() {
     this.selectActiveNavItem()
     this.sections[this.currentSectionIndex].scrollIntoView({
       behavior: "smooth",
       block: "start"
     })
   }
-  drawNavigation = () => {
+  drawNavigation() {
     this.navigationContainer = document.createElement('aside')
     this.navigationContainer.setAttribute("class", "scroller__navigation")
 
@@ -87,12 +87,12 @@ class Scroller {
     document.body.appendChild(this.navigationContainer)
     this.selectActiveNavItem()
   }
-  selectActiveNavItem = () => {
+  selectActiveNavItem() {
     if (this.navigationContainer) {
       const NavigationItem = this.navigationContainer.querySelectorAll('li')
 
       NavigationItem.forEach((item, index) => {
-        console.log(item);
+
         if (this.currentSectionIndex === index) {
           item.classList.add('active')
         } else {
