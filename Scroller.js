@@ -5,6 +5,7 @@ class Scroller {
     const vissibleSection = [...this.sections]
 
 
+
     const currentSectionIndex = vissibleSection.findIndex((element) => this.isScrolledIntoView(element))
 
     // this.currentSectionIndex = vissibleSection.findIndex((element) => {
@@ -47,6 +48,7 @@ class Scroller {
 
   }
   scroll(direction) {
+
     if (direction === 1) {
       const isLastSection = this.currentSectionIndex === this.sections.length - 1
       if (isLastSection) return
